@@ -1,0 +1,94 @@
+require:
+  - rubocop-rails
+  - rubocop-rspec
+
+Bundler/OrderedGems:
+  Enabled: true
+  
+Style/Documentation:
+  Enabled: false
+  
+Style/EmptyMethod:
+  Enabled: false
+  
+Style/Lambda:
+  Enabled: false
+Style/Alias:
+
+  EnforcedStyle: prefer_alias_method
+  
+Style/EmptyCaseCondition:
+  Enabled: false
+  
+Style/HashEachMethods:
+  Enabled: true
+  
+Style/HashTransformKeys:
+  Enabled: true
+  
+Style/HashTransformValues:
+  Enabled: true
+  
+Style/ExponentialNotation:
+  Enabled: true
+  EnforcedStyle: scientific
+  
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: always_true
+  
+Metrics/AbcSize:
+  Max: 25
+  
+Metrics/MethodLength:
+  Max: 13
+  
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Max: 9
+
+Metrics/PerceivedComplexity:
+  Max: 9
+  
+Lint/SuppressedException:
+  Enabled: false
+  
+Lint/AmbiguousBlockAssociation:
+  Enabled: true
+  
+  Exclude:
+    - 'spec/**/*'
+    
+Lint/RaiseException:
+  Enabled: true
+  
+Layout/LineLength:
+  Max: 200
+  IgnoredPatterns: ['\A#']
+  
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
+  
+Lint/StructNewOverride:
+  Enabled: true
+  
+RSpec/DescribeClass:
+  Exclude:
+    - 'spec/features/*'
+    
+RSpec/NestedGroups:
+  Max: 6
+  
+AllCops:
+  Exclude:
+    - 'bundle/**/*'
+    - '.bundle/**/*'
+    - 'bin/setup'
+    - 'bin/yarn'
+    - 'bin/webpack'
+    - 'bin/webpack-dev-server'
+    - 'db/schema.rb'
+    - 'log/**/*'
+    - 'node_modules/**/*'
+    - 'tmp/**/*'
