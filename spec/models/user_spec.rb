@@ -5,9 +5,7 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   subject { build(:user, last_name: 'Doe', first_name: 'John', role: 'customer') }
 
-  context 'when valid Factory' do
-    it { is_expected.to be_valid }
-  end
+  it { is_expected.to be_valid }
 
   describe 'length is invalid' do
     it { is_expected.not_to allow_value('a' * 51).for(:first_name) }
