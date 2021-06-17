@@ -6,9 +6,7 @@ RSpec.describe User, type: :model do
   subject { build(:user, last_name: 'Doe', first_name: 'John', role: 'customer') }
 
   context 'when valid Factory' do
-    it 'has a valid factory' do
-      expect(subject).to be_valid
-    end
+    it { is_expected.to be_valid }
   end
 
   describe 'length is invalid' do
