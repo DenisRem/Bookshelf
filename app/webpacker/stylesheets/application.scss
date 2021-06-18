@@ -1,0 +1,59 @@
+@import 'bootstrap';
+@import '@fortawesome/fontawesome-free';
+@import 'footer';
+@import 'header';
+@import url('https://fonts.googleapis.com/css?family=Cairo:300,400,600|Lobster|Pacifico&display=swap&subset=cyrillic,cyrillic-ext');
+
+// font-family: 'Lobster', cursive;
+// font-family: 'Pacifico', cursive;
+// font-family: 'Cairo', sans-serif;
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Lobster', cursive;
+}
+
+body {
+  background-color: #eee9e1;
+  font-family: 'Cairo', sans-serif;
+  font-size: 24px;
+}
+
+.navbar-brand {
+  font-size: x-large;
+  font-weight: bold;
+}
+
+.auth-btn {
+  color: #f5f5f5;
+}
+
+.auth-btn:hover {
+  background-color: #742d05;
+  color: #f5f5f5;
+}
+
+.navbar-header {
+  background-color: rgba(255, 255, 255, 0.171);
+}
+
+.nav-links {
+  color: #ffffff;
+}
+
+.nav-links:hover {
+  background-color: #742d05;
+  color: #f5f5f5;
+}
+
+p {
+  text-align: justify;
+  text-indent: 1.7em;
+}
+
+.imd-book {
+  height: 200px;
+  width: 55%;
+}
