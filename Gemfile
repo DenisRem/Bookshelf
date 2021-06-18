@@ -24,9 +24,13 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap', '~> 5.0.1'
+gem 'bootstrap4-kaminari-views'
+gem 'devise'
 gem 'factory_bot_rails'
 gem 'faker'
+gem 'font_awesome5_rails'
 gem 'jquery-rails'
+gem 'meta-tags'
 gem 'rubocop', require: false
 gem 'rubocop-rails', require: false
 gem 'slim-rails'
