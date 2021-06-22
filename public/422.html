@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The change you wanted was rejected (422)</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+  @import url('https://fonts.googleapis.com/css?family=Cabin:400,700');
+  @import url('https://fonts.googleapis.com/css?family=Montserrat:900');
+  * {
+	  -webkit-box-sizing: border-box;
+	  box-sizing: border-box;
+  }
+  body {
+	  margin: 0;
+	  padding: 0;
+  }
+  .error {
+    height: 100vh, 50px;
+	  position: relative;
+	  left: 50%;
+	  position: absolute;
+	  top: 50%;
+	  -ms-transform: translate(-50%, -50%);
+	  -webkit-transform: translate(-50%, -50%);
+	  transform: translate(-50%, -50%);
+	  line-height: 1.4;
+	  max-width: 520px;
+	  text-align: center;
+	  width: 100%;
+  }
+  .error .error-num {
+	  height: 240px;
+	  position: relative;
+  }
+  .error .error-num h1 {
+	  color: #262626;
+	  font-family: 'Montserrat', sans-serif;
+	  font-size: 252px;
+	  font-weight: 900;
+	  left: 50%;
+	  letter-spacing: -40px;
+	  margin: 0;
+	  margin-left: -20px;
+	  position: absolute;
+	  text-transform: uppercase;
+	  top: 50%;
+	  -ms-transform: translate(-50%, -50%);
+	  -webkit-transform: translate(-50%, -50%);
+	  transform: translate(-50%, -50%);
+  }
+  .error .error-num h1 > span {
+	  text-shadow: -8px 0 0 #fff;
+  }
+  .error .error-num h3 {
+	  color: #262626;
+	  font-family: 'Cabin', sans-serif;
+	  font-size: 16px;
+	  font-weight: 700;
+	  letter-spacing: 3px;
+	  margin: 0;
+	  padding-left: 6px;
+	  position: relative;
+	  text-transform: uppercase;
+  }
+  .error h2 {
+	  color: #000;
+	  font-family: 'Cabin', sans-serif;
+	  font-size: 20px;
+	  font-weight: 400;
+	  margin-bottom: 25px;
+	  margin-top: 0;
+	  text-transform: uppercase;
+  } 
+  </style>
+</head>
+
+<body class="error">
+  <div class="error">
+    <div class="error-num">
+      <h3>Oops! Server Error</h3>
+      <h1><span>4</span><span>2</span><span>2</span></h1>
+    </div>
+    <div class="error-num">
+      <h2>The change you wanted was rejected</h2>
+    </div>
+  </div>
+</body>
+</html>
