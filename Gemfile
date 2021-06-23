@@ -24,6 +24,7 @@ gem 'rubocop', require: false
 gem 'rubocop-rails', require: false
 gem 'sass-rails', '>= 6'
 gem 'simple_form'
+gem 'slim_lint'
 gem 'slim-rails'
 gem 'travis'
 gem 'turbolinks', '~> 5'

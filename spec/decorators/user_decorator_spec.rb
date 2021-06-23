@@ -3,7 +3,11 @@
 require 'rails_helper'
 
 RSpec.describe UserDecorator do
-  subject { build(:user, last_name: 'Doe', first_name: 'John', role: 'customer') }
+  subject { user.decorate }
 
-  it { is_expected.to be_valid }
+  let(:user) { build(:user) }
+
+  it '#full_name' do
+    expect(subject.full_name).to eq("#{user.first_name} #{user.last_name}")
+  end
 end

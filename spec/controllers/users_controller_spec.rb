@@ -41,7 +41,7 @@ RSpec.describe UsersController, type: :controller do
   end
 
   describe 'PUT#update' do
-    subject { put :update, params: { id: user.id, user: valid_params.merge!(first_name: 'Example', last_name: 'Test', email: 'example@email.com') } }
+    subject { put :update, params: { id: user.id, user: valid_params } }
 
     context 'with valid params' do
       let(:params) { valid_params }

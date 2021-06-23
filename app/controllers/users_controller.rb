@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :user, only: %i[show edit update destroy]
+  before_action :find_user, except: :index
 
   def index
     @users = User.page(params[:page])
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(:first_name, :last_name, :email, :avatar)
   end
 
-  def user
+  def find_user
     @user ||= User.find(params[:id])
   end
 end
