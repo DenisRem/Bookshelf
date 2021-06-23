@@ -4,14 +4,17 @@ require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
   let!(:user) { create(:user) }
-  let!(:valid_params) { attributes_for :user }
+  let!(:valid_params) { attributes_for(:user) }
   let!(:invalid_params) { { first_name: ' ', last_name: ' ' } }
 
   describe 'GET#index' do
-    it 'assigns users and renders template' do
+    before do
       get :index
-      expect(response).to have_http_status(:success)
-      expect(response).to render_template('index')
+    end
+
+    context 'when assigns users and renders template' do
+      it { expect(response).to have_http_status(:success) }
+      it { expect(response).to render_template('index') }
     end
   end
 
@@ -20,9 +23,9 @@ RSpec.describe UsersController, type: :controller do
       get :show, params: { id: user.id }
     end
 
-    it 'returns success and assigns user' do
-      expect(response).to have_http_status(:success)
-      expect(assigns(:user)).to eq(user)
+    context 'when returns success and assigns user' do
+      it { expect(response).to have_http_status(:success) }
+      it { expect(assigns(:user)).to eq(user) }
     end
   end
 
@@ -31,55 +34,50 @@ RSpec.describe UsersController, type: :controller do
       get :edit, params: { id: user.id }
     end
 
-    it 'returns http success and assign user' do
-      expect(response).to have_http_status(:success)
-      expect(assigns(:user)).to eq(user)
+    context 'when returns http success and assign user' do
+      it { expect(response).to have_http_status(:success) }
+      it { expect(assigns(:user)).to eq(user) }
     end
   end
 
   describe 'PUT#update' do
-    context 'with valid params' do
-      before do
-        put :update, params: { id: user.id,
-                               user: valid_params.merge!(first_name: 'Example',
-                                                         last_name: 'Test',
-                                                         email: 'example@email.com') }
-      end
+    subject { put :update, params: { id: user.id, user: valid_params.merge!(first_name: 'Example', last_name: 'Test', email: 'example@email.com') } }
 
-      it 'assigns the user' do
-        expect(assigns(:user)).to eq(user)
-        expect(response).to have_http_status(:redirect)
-        expect(response).to redirect_to(user_path(user))
+    context 'with valid params' do
+      let(:params) { valid_params }
+
+      before { subject }
+
+      context 'when assigns the user' do
+        it { expect(assigns(:user)).to eq(user) }
+        it { expect(response).to have_http_status(:redirect) }
+        it { expect(response).to redirect_to(user_path(user)) }
+        it { expect(flash[:success]).to be_present }
       end
 
       it 'updates user attributes' do
-        user.reload
-        expect(user.first_name).to eq(valid_params[:first_name])
-        expect(user.last_name).to eq(valid_params[:last_name])
-        expect(user.email).to eq(valid_params[:email])
-        expect(flash[:success]).to be_present
+        expect(user.reload.attributes.symbolize_keys).to include(valid_params.slice(:first_name, :last_name, :email))
       end
     end
 
     context 'with invalid params' do
+      let(:params) { invalid_params }
+
       it 'does not change user' do
-        expect do
-          put :update, params: { id: user.id, user: invalid_params }
-        end.not_to change { user.reload.first_name }
-        expect do
-          put :update, params: { id: user.id, user: invalid_params }
-        end.not_to change { user.reload.last_name }
+        expect { :invalid_params }.not_to change { user.reload.attributes }
       end
     end
   end
 
   describe 'DELETE#destroy' do
-    it 'destroys the user and redirects to index' do
-      expect { delete :destroy, params: { id: user.id } }
-        .to change(User, :count).by(-1)
-      expect(response).to have_http_status(:redirect)
-      expect(response).to redirect_to(users_path)
-      expect(flash[:danger]).to be_present
+    subject { delete :destroy, params: { id: user.id } }
+
+    before { subject }
+
+    context 'when destroys the user and redirects to index' do
+      it { expect(response).to have_http_status(:redirect) }
+      it { expect(response).to redirect_to(users_path) }
+      it { expect(flash[:danger]).to be_present }
     end
   end
 end

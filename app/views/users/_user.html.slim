@@ -6,12 +6,8 @@
     - else
       = image_tag("default_a.png", alt: 'Image', class: 'user-avatar')
   p
-    | User:
-      #{user.full_name}
+    | User: #{user.decorate.full_name}
   p
-    | E-mail:
-      #{user.email}
+    | E-mail: #{user.email}
   p
     = link_to 'Show', user, class: 'btn btn-outline-primary'
-  hr
-  

@@ -1,26 +1,21 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  include ControllerHelper
   before_action :user, only: %i[show edit update destroy]
 
   def index
-    @users = User.page params[:page]
+    @users = User.page(params[:page])
   end
-
-  def show; end
-
-  def edit; end
 
   def destroy
     @user.destroy
-    redirect_to [:users]
     flash[:danger] = 'User profile has been deleted'
+    redirect_to users_path
   end
 
   def update
     if @user.update(user_params)
-      successful_update("User profile \"#{@user.full_name}\"  updated")
+      flash[:success] = "User profile \"#{@user.decorate.full_name}\"  updated"
       redirect_to @user
     else
       flash.now[:warning] = 'Invalid parameters for editing!'
@@ -31,7 +26,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :avatar, :role, :password)
+    params.require(:user).permit(:first_name, :last_name, :email, :avatar)
   end
 
   def user
