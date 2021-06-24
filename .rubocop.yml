@@ -13,8 +13,8 @@ Style/EmptyMethod:
   
 Style/Lambda:
   Enabled: false
-Style/Alias:
 
+Style/Alias:
   EnforcedStyle: prefer_alias_method
   
 Style/EmptyCaseCondition:
@@ -35,6 +35,13 @@ Style/ExponentialNotation:
   
 Style/FrozenStringLiteralComment:
   EnforcedStyle: always_true
+
+Style/NamedSubject:
+  Enabled: false
+
+Rails/FilePath:
+  Exclude: 
+    - 'spec/factories/users.rb'
   
 Metrics/AbcSize:
   Max: 25

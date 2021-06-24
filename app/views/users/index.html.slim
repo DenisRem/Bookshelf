@@ -1,0 +1,8 @@
+.container-wrapper
+  h1
+    | All Users
+  .user-index
+   .row
+    = render partial: @users
+   .pagination-container
+     = paginate @users, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm"
