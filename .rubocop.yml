@@ -35,6 +35,12 @@ Style/ExponentialNotation:
   
 Style/FrozenStringLiteralComment:
   EnforcedStyle: always_true
+
+Style/NamedSubject:
+  Enabled: false
+
+Rails/FilePath:
+  Enabled: false
   
 Metrics/AbcSize:
   Max: 25
