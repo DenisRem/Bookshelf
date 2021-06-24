@@ -61,10 +61,12 @@ RSpec.describe UsersController, type: :controller do
     end
 
     context 'with invalid params' do
+      subject { put :update, params: { id: user.id, user: invalid_params } }
+
       let(:params) { invalid_params }
 
       it 'does not change user' do
-        expect { :invalid_params }.not_to change { user.reload.attributes }
+        expect { subject }.not_to change { user.reload.attributes }
       end
     end
   end
