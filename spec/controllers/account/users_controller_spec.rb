@@ -2,21 +2,12 @@
 
 require 'rails_helper'
 
-RSpec.describe UsersController, type: :controller do
-  let!(:user) { create(:user) }
+RSpec.describe Account::UsersController, type: :controller do
+  let!(:user) { create(:user, :admin) }
   let!(:valid_params) { attributes_for(:user) }
   let!(:invalid_params) { { first_name: ' ', last_name: ' ' } }
 
-  describe 'GET#index' do
-    before do
-      get :index
-    end
-
-    context 'when assigns users and renders template' do
-      it { expect(response).to have_http_status(:success) }
-      it { expect(response).to render_template('index') }
-    end
-  end
+  before { sign_in user }
 
   describe 'GET#show' do
     before do
@@ -51,7 +42,7 @@ RSpec.describe UsersController, type: :controller do
       context 'when assigns the user' do
         it { expect(assigns(:user)).to eq(user) }
         it { expect(response).to have_http_status(:redirect) }
-        it { expect(response).to redirect_to(user_path(user)) }
+        it { expect(response).to redirect_to(account_user_path(user)) }
         it { expect(flash[:success]).to be_present }
       end
 
@@ -71,6 +62,17 @@ RSpec.describe UsersController, type: :controller do
     end
   end
 
+  describe 'GET#index' do
+    before do
+      get :index
+    end
+
+    context 'when assigns users and renders template' do
+      it { expect(response).to have_http_status(:success) }
+      it { expect(response).to render_template('index') }
+    end
+  end
+
   describe 'DELETE#destroy' do
     subject { delete :destroy, params: { id: user.id } }
 
@@ -78,7 +80,7 @@ RSpec.describe UsersController, type: :controller do
 
     context 'when destroys the user and redirects to index' do
       it { expect(response).to have_http_status(:redirect) }
-      it { expect(response).to redirect_to(users_path) }
+      it { expect(response).to redirect_to(account_users_path) }
       it { expect(flash[:danger]).to be_present }
     end
   end

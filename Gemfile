@@ -19,6 +19,7 @@ gem 'kaminari'
 gem 'meta-tags'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
+gem 'pundit'
 gem 'rails', '~> 6.1.3', '>= 6.1.3.2'
 gem 'rubocop', require: false
 gem 'rubocop-rails', require: false
