@@ -5,6 +5,14 @@ class UserPolicy < ApplicationPolicy
     user_admin?
   end
 
+  def show?
+    user_admin?
+  end
+
+  def update?
+    user_admin?
+  end
+
   def edit?
     user_admin? || current_user.id == model.id
   end
