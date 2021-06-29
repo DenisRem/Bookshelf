@@ -2,7 +2,7 @@
 
 class UsersController < ApplicationController
   include Pundit
-  before_action :authenticate_user!, :find_user, only: %i[show edit update destroy]
+  before_action :authenticate_user!, :find_user, except: :index
 
   def edit
     @user = current_user

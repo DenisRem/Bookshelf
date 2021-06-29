@@ -12,8 +12,8 @@ class ApplicationPolicy
 
   protected
 
-  def update?
-    raise NotImplementedError, 'define method :update?'
+  def destroy?
+    raise NotImplementedError, 'define method :destroy?'
   end
 
   private

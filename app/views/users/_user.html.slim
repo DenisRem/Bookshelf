@@ -1,10 +1,6 @@
 .col-md-4
  .user-index-size
-  p
-    - if user.avatar?
-      = user_avatar_tag(user)
-    - else
-      = user_avatar_tag(user)
+  img = user_avatar_tag(user)
   p
     | User: #{user.decorate.full_name}
   p
