@@ -10,7 +10,7 @@ class UserPolicy < ApplicationPolicy
   end
 
   def update?
-    user_admin?
+    user_admin? || current_user.id == model.id
   end
 
   def edit?

@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  include Pundit
   before_action :authenticate_user!, :find_user, except: :index
 
   def update

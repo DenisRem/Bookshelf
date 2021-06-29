@@ -10,12 +10,6 @@ class ApplicationPolicy
     @model = model
   end
 
-  protected
-
-  def destroy?
-    raise NotImplementedError, 'define method :destroy?'
-  end
-
   private
 
   def user_admin?
