@@ -3,20 +3,11 @@
 require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
-  let!(:user) { create(:user) }
+  let!(:user) { create(:user, :admin) }
   let!(:valid_params) { attributes_for(:user) }
   let!(:invalid_params) { { first_name: ' ', last_name: ' ' } }
 
-  describe 'GET#index' do
-    before do
-      get :index
-    end
-
-    context 'when assigns users and renders template' do
-      it { expect(response).to have_http_status(:success) }
-      it { expect(response).to render_template('index') }
-    end
-  end
+  before { sign_in user }
 
   describe 'GET#show' do
     before do
@@ -68,6 +59,15 @@ RSpec.describe UsersController, type: :controller do
       it 'does not change user' do
         expect { subject }.not_to change { user.reload.attributes }
       end
+    end
+  end
+
+  describe 'GET#index' do
+    before { get :index }
+
+    context 'when assigns users and renders template' do
+      it { expect(response).to have_http_status(:success) }
+      it { expect(response).to render_template('index') }
     end
   end
 

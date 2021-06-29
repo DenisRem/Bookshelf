@@ -1,17 +1,7 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :find_user, except: :index
-
-  def index
-    @users = User.page(params[:page])
-  end
-
-  def destroy
-    @user.destroy
-    flash[:danger] = 'User profile has been deleted'
-    redirect_to users_path
-  end
+  before_action :authenticate_user!, :find_user, except: :index
 
   def update
     if @user.update(user_params)
@@ -23,6 +13,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def index
+    @users = User.page params[:page]
+  end
+
+  def destroy
+    @user.destroy
+    flash[:danger] = 'User profile has been deleted'
+    redirect_to users_path
+  end
+
   private
 
   def user_params
@@ -31,5 +31,6 @@ class UsersController < ApplicationController
 
   def find_user
     @user = User.find(params[:id])
+    authorize @user
   end
 end

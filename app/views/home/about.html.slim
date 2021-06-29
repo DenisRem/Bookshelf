@@ -1,0 +1,5 @@
+h1.about-title About us
+p.about-paragraph This cite was developed by creative and self-motivated developer of 'Ruby on Rails' <span>Leobit</span>
+.row
+  - AboutHelper::DEVELOPERS.each do |hash|
+    = render partial: 'shared/about_profile', locals: {name: hash[:name], mail: hash[:email]}

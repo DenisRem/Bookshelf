@@ -1,12 +1,12 @@
 header.header.w-100
   nav.navbar.navbar-expand-lg.navbar-dark.navbar-header
-    a.nav-name.navbar-brand.text-black href="/"  Bookshelf Application
+    = link_to 'Bookshelf Application', home_path, class: 'a nav-name navbar-brand text-black' 
     button.navbar-toggler aria-controls = "navbarNav" aria-expanded = "false" aria-label = ("Toggle navigation") data-target = "#navbarNav" data-toggle = "collapse" type = "button"
       span.navbar-toggler-icon
     #navbarNav.collapse.navbar-collapse
       ul.navbar-nav
         li.nav-item
-          a.nav-link.ml-3 href="#"
+          = link_to about_path, class: 'a nav-link ml-3'
             button.btn.btn-transparent.auth-btn
               | About us
               span.sr-only (current)

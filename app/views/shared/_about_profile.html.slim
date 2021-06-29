@@ -1,0 +1,7 @@
+.column
+  .card
+    = image_tag('/about_us_photos/ihor_moskvyn.jpg', alt: 'Ihor Moskvyn')
+    .profile_container
+      h2 = t('Ihor Moskvyn')
+      p.title = t('Ruby on Rails developer')
+      = mail_to mail, mail

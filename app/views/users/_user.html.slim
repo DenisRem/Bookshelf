@@ -1,13 +1,9 @@
 .col-md-4
  .user-index-size
-  p
-    - if user.avatar?
-      = image_tag(user.avatar.url, alt: 'Image', class: 'user-avatar')
-    - else
-      = image_tag("default_a.png", alt: 'Image', class: 'user-avatar')
+  img = user_avatar_tag(user)
   p
     | User: #{user.decorate.full_name}
   p
     | E-mail: #{user.email}
-  p
+  div
     = link_to 'Show', user, class: 'btn btn-outline-primary'
