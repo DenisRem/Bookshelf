@@ -10,10 +10,10 @@
   font-family: 'David Libre', serif;
   text-align: center;
   font-size: 2.3em;
-}
 
-.about-paragraph span {
-  font-weight: bold;
+  span {
+   font-weight: bold;
+  }
 }
 
 .row {
@@ -34,10 +34,10 @@
 
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-}
 
-.card img {
-  width: 100%;
+  img {
+    width: 100%;
+  }
 }
 
 .profile_container {
@@ -47,16 +47,16 @@
     clear: both;
     display: table;
   }
-}
 
-.profile_container h2{
-  font-size: 1.2em;
-  margin-top: 10px;
-}
+  h2 {
+    font-size: 1.2em;
+    margin-top: 10px;
+  }
 
-.profile_container p{
-  text-indent: 0;
-  font-size: 0.8em;
+  p {
+    text-indent: 0;
+    font-size: 0.8em;
+  }
 }
 
 .title {

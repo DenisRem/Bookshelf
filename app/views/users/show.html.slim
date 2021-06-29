@@ -4,9 +4,9 @@
   .show-box
     .user-avatar-show
       - if @user.avatar?
-        = image_tag(@user.avatar.url, alt: 'Image', class: 'user-avatar show-user')
+        = user_avatar_tag(@user)
       - else
-        = image_tag('default_a.png', alt: 'Image', class: 'user-avatar show-user')
+        = user_avatar_tag(user)
     .user-info
       .user-item
         span.nameing-user User:
@@ -17,13 +17,13 @@
       nav
         ul.nav.navbar-user
          li.nav-item-user = link_to 'Edit User',
-                                     edit_account_user_path,
+                                     edit_user_path,
                                      class: 'btn btn-outline-warning'
          li.nav-item-user = link_to 'Delete User',
-                                     [:account,  @user],
+                                     @user,
                                      method: :delete,
                                      data: { confirm: 'Are you sure?' },
                                      class: 'btn btn-outline-danger'
          li.nav-item-user = link_to 'Back to Users',
-                                     account_users_path,
+                                     users_path,
                                      class: 'btn btn-outline-info'

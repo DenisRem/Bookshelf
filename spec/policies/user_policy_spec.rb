@@ -8,7 +8,7 @@ RSpec.describe UserPolicy, type: :model do
   let!(:admin) { create(:user, :admin) }
 
   permissions :index?, :destroy? do
-    it 'allows an admin to see any profile' do
+    it 'allows an admin to see and destroy' do
       expect(subject).to permit(admin)
     end
   end

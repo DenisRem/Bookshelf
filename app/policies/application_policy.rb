@@ -1,51 +1,24 @@
 # frozen_string_literal: true
 
 class ApplicationPolicy
-  attr_reader :user, :record
+  attr_reader :current_user, :model
 
-  def initialize(user, record)
-    @user = user
-    @record = record
+  def initialize(current_user, model)
+    raise Pundit::NotAuthorizedError, 'must be logged in' unless current_user
+
+    @current_user = current_user
+    @model = model
   end
 
-  def index?
-    false
-  end
-
-  def show?
-    false
-  end
-
-  def create?
-    false
-  end
-
-  def new?
-    create?
-  end
+  protected
 
   def update?
-    false
+    raise NotImplementedError, 'define method :update?'
   end
 
-  def edit?
-    update?
-  end
+  private
 
-  def destroy?
-    false
-  end
-
-  class Scope
-    attr_reader :user, :scope
-
-    def initialize(user, scope)
-      @user = user
-      @scope = scope
-    end
-
-    def resolve
-      scope.all
-    end
+  def user_admin?
+    @current_user.admin?
   end
 end

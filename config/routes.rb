@@ -6,7 +6,5 @@ Rails.application.routes.draw do
 
   get 'about' => 'home#about'
 
-  namespace :account do
-    resources :users
-  end
+  resources :users, except: %i[new create]
 end
