@@ -8,5 +8,6 @@ FactoryBot.define do
     avatar { File.open("#{Rails.root}/app/assets/images/User_Account.png") }
     password { Faker::Internet.password }
     traits_for_enum :role, User.roles.values
+    list
   end
 end

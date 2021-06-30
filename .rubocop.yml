@@ -42,6 +42,8 @@ Style/NamedSubject:
 Rails/FilePath:
   Exclude: 
     - 'spec/factories/users.rb'
+    - 'spec/factories/books.rb'
+    - 'spec/factories/authors.rb'
   
 Metrics/AbcSize:
   Max: 25

@@ -11,6 +11,8 @@ class User < ApplicationRecord
     customer: CUSTOMER = 'customer'
   }
 
+  belongs_to :list
+
   mount_uploader :avatar, AvatarUploader
 
   validates :first_name, presence: true, length: { maximum: 50 }
