@@ -39,11 +39,13 @@ Style/FrozenStringLiteralComment:
 Style/NamedSubject:
   Enabled: false
 
+Style/SymbolArray:
+  Exclude: 
+    - 'db/migrate/20210630144922_add_index_to_book_author.rb'  
+
 Rails/FilePath:
   Exclude: 
-    - 'spec/factories/users.rb'
-    - 'spec/factories/books.rb'
-    - 'spec/factories/authors.rb'
+    - 'spec/factories/**/*'
   
 Metrics/AbcSize:
   Max: 25
@@ -73,8 +75,15 @@ Lint/RaiseException:
   Enabled: true
   
 Layout/LineLength:
-  Max: 200
+  Max: 80
   IgnoredPatterns: ['\A#']
+  Exclude:
+    - 'config/initializers/devise.rb'
+    - 'config/initializers/simple_form.rb'
+    - 'config/environments/production.rb'
+    - 'config/environments/development.rb'
+    - 'config/environments/test.rb'
+    - 'bin/bundle'
   
 Layout/SpaceAroundMethodCallOperator:
   Enabled: true

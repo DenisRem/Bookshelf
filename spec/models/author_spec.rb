@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe Author, type: :model do
-  subject { build(:author, name: 'Alysha Olsen') }
+  subject { build(:author) }
 
   it { is_expected.to be_valid }
 
@@ -13,12 +13,8 @@ RSpec.describe Author, type: :model do
   end
 
   describe 'validations' do
-    describe 'length is invalid' do
-      it { is_expected.not_to allow_value('a' * 51).for(:name) }
-    end
-
     describe 'length is valid' do
-      it { is_expected.to allow_value('a' * 49).for(:name) }
+      it { is_expected.to validate_length_of(:name).is_at_most(50) }
     end
   end
 end

@@ -5,7 +5,9 @@ FactoryBot.define do
     title { Faker::Book.title }
     publishing_house { Faker::Book.publisher }
     language { Faker::Nation.language }
-    year_of_publication { Faker::Number.number(digits: 4) }
+    year_of_publication do
+      Faker::Date.between(from: '1900-04-05', to: '2021-04-05')
+    end
     number_of_pages { Faker::Number.number(digits: 3) }
     format { '180х180 mm' }
     binding { Faker::Commerce.material }

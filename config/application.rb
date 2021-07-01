@@ -17,7 +17,8 @@ module Bookshelf
       g.template_engine :slim
     end
 
-    config.action_dispatch.rescue_responses['Pundit::NotAuthorizedError'] = :forbidden
+    config.action_dispatch.rescue_responses['Pundit::NotAuthorizedError'] =
+      :forbidden
 
     # Configuration for the application, engines, and railties goes here.
     #

@@ -12,7 +12,7 @@ class CreateBooks < ActiveRecord::Migration[6.1]
       t.string :binding
       t.string :ISBN
       t.string :avatar
-      t.string :availability
+      t.boolean :availability
 
       t.timestamps
     end
