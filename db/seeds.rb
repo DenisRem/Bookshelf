@@ -11,5 +11,3 @@
 FactoryBot.create_list(:user, 5)
 FactoryBot.create_list(:book, 10)
 FactoryBot.create_list(:author, 5)
-FactoryBot.create_list(:category, 3)
-FactoryBot.create_list(:list, 2)
