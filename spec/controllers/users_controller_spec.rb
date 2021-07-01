@@ -47,7 +47,9 @@ RSpec.describe UsersController, type: :controller do
       end
 
       it 'updates user attributes' do
-        expect(user.reload.attributes.symbolize_keys).to include(valid_params.slice(:first_name, :last_name, :email))
+        expect(user.reload.attributes.symbolize_keys).to include(
+          valid_params.slice(:first_name, :last_name, :email)
+        )
       end
     end
 

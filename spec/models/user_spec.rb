@@ -3,7 +3,9 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  subject { build(:user, last_name: 'Doe', first_name: 'John', role: 'customer') }
+  subject do
+    build(:user, last_name: 'Doe', first_name: 'John', role: 'customer')
+  end
 
   it { is_expected.to be_valid }
 

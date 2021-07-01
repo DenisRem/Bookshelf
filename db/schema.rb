@@ -10,10 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_17_093958) do
+ActiveRecord::Schema.define(version: 2021_06_30_144922) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "authors", force: :cascade do |t|
+    t.string "name"
+    t.string "avatar"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "book_authors", force: :cascade do |t|
+    t.bigint "book_id"
+    t.bigint "author_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["author_id"], name: "index_book_authors_on_author_id"
+    t.index ["book_id", "author_id"], name: "index_book_authors_on_book_id_and_author_id", unique: true
+    t.index ["book_id"], name: "index_book_authors_on_book_id"
+  end
+
+  create_table "books", force: :cascade do |t|
+    t.string "title"
+    t.string "publishing_house"
+    t.string "language"
+    t.integer "year_of_publication"
+    t.integer "number_of_pages"
+    t.string "format"
+    t.string "binding"
+    t.string "ISBN"
+    t.string "avatar"
+    t.boolean "availability"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "first_name"
@@ -31,4 +63,6 @@ ActiveRecord::Schema.define(version: 2021_06_17_093958) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "book_authors", "authors"
+  add_foreign_key "book_authors", "books"
 end

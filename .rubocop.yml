@@ -41,13 +41,13 @@ Style/NamedSubject:
 
 Rails/FilePath:
   Exclude: 
-    - 'spec/factories/users.rb'
+    - 'spec/factories/**/*'
   
 Metrics/AbcSize:
   Max: 25
   
 Metrics/MethodLength:
-  Max: 13
+  Max: 15
   
 Metrics/BlockLength:
   Enabled: false
@@ -71,8 +71,15 @@ Lint/RaiseException:
   Enabled: true
   
 Layout/LineLength:
-  Max: 200
+  Max: 81
   IgnoredPatterns: ['\A#']
+  Exclude:
+    - 'config/initializers/devise.rb'
+    - 'config/initializers/simple_form.rb'
+    - 'config/environments/production.rb'
+    - 'config/environments/development.rb'
+    - 'config/environments/test.rb'
+    - 'bin/bundle'
   
 Layout/SpaceAroundMethodCallOperator:
   Enabled: true
