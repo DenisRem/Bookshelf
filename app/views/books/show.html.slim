@@ -1,0 +1,44 @@
+.container
+  h1.title
+    | Book info:
+  .book-info
+    .info-item
+      span.name Title:
+      span.value = @book.title
+    .info-item
+      span.name Publishing house:
+      span.value = @book.publishing_house
+    .info-item
+      span.name Language:
+      span.value = @book.language
+    .info-item
+      span.name Year of publication:
+      span.value = @book.year_of_publication
+    .info-item
+      span.name Number of pages:
+      span.value = @book.number_of_pages
+    .info-item
+      span.name Format:
+      span.value = @book.format
+    .info-item
+      span.name Binding:
+      span.value = @book.binding
+    .info-item
+      span.name ISBN:
+      span.value = @book.ISBN
+    .info-item
+      span.name Availability:
+      span.value = @book.availability
+    nav
+      ul.nav.navbar
+        li.nav-item = link_to 'Edit Book',
+                               edit_book_path,
+                               class: 'btn btn-outline-warning'
+        li.nav-item = link_to 'Delete Book',
+                               @book,
+                               method: :delete,
+                               data: { confirm: 'Are you sure?' },
+                               class: 'btn btn-outline-danger'
+        li.nav-item = link_to 'Back to Books',
+                               books_path,
+                               class: 'btn btn-outline-info'

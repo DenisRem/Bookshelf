@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   get 'about' => 'home#about'
 
   resources :users, except: %i[new create]
+  resources :books
 end

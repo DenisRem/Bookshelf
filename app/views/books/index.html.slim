@@ -1,0 +1,13 @@
+.container-wrapper
+  .new-button
+    = link_to new_book_path, class: 'btn btn-primary'
+      | New book
+  h1
+    | All Books
+  .book-index
+    .row.mt-4
+      - @books.each do |book|
+        = render book
+    .pagination-container
+      = paginate @books, theme: 'twitter-bootstrap-4',
+                         pagination_class: 'pagination-md'

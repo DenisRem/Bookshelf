@@ -1,0 +1,56 @@
+.form-group.book-form {
+  margin: auto;
+  width: 500px;
+}
+
+a.btn.btn-outline-danger {
+  margin-left: 10px;
+}
+
+.book-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 560px;
+}
+
+.info-item {
+  margin: 5px 0 5px 10px;
+}
+
+.name {
+  display: inline-flex;
+  font-size: 24px;
+  width: 240px;
+}
+
+.value {
+  width: 340px;
+}
+
+.show-btn {
+  margin-left: -3px;
+}
+
+span {
+  margin-right: 10px;
+}
+
+nav {
+  margin-left: -15px;
+}
+
+ul {
+  padding: 0;
+  li {
+    margin: 5px;
+    a {
+      width: 150px;
+    }
+   }
+}
+
+.book-index {
+  margin-left: 140px;
+  margin-right: 60px;
+}

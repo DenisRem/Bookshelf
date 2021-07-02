@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe Book, type: :model do
-  subject { build(:book, year_of_publication: '1990') }
+  subject { build(:book) }
 
   it { is_expected.to be_valid }
 
