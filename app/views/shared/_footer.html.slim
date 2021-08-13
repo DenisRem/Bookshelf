@@ -1,34 +1,30 @@
-footer.footer.mt-2.pt-2.mb-0
-  .container
-    .row
-      .col-lg-5.col-xs-12.about-developer
-        h4
-          | Bookshelf Application
-        p.pr-5.text-white-50
+footer.text-center.text-lg-start.bg-primary.text-muted
+  .container.text-center.text-md-start.mt-5.p-1.text-white
+    .row.mt-3
+      .col-md-3.col-lg-4.col-xl-3.mx-auto.mb-4
+        h6.text-uppercase.fw-bold.mb-4
+          i.fas.fa-book.me-3
+          |  Bookshelf Application
+        p
           | Bookshelf is first and foremost a comfortable environment that is
           | created for public use.
-      .col-lg-3.col-xs-12.links
-        h5.mt-lg-0.mt-sm-3
+      .col-md-2.col-lg-2.col-xl-2.mx-auto.mb-4
+        h6.text-uppercase.fw-bold.mb-4
           | Links
-        ul.m-0.p-0
-          li
-            | -
-            = link_to about_path, class: 'a'
-              | About us
-      .col-lg-4.col-xs-12.location
-        h5.mt-lg-0.mt-sm-3
-          | Contact
-        p.mb-0
-          i.fas.fa-home.me-3
-          |  Ivano-Frankivsk
-        p.mb-0
-          i.fa.fa-phone.mr-3
-          | + 01 234 567 88
-        p.mb-0
-          i.fa.fa-envelope.mr-3
-          | info@example.com
-    .row
-      .col.copyright
         p
-          small.text-white-50
-            | © 2021 Copyright: Ihor Moskvyn
+          = link_to about_path, class: 'a text-reset ml-4'
+            | About us
+      .col-md-4.col-lg-3.col-xl-3.mx-auto.mb-md-0.mb-4
+        h6.text-uppercase.fw-bold.mb-4
+          | Contact
+        p
+          i.fas.fa-home.me-3.ml-4
+          |  Ivano-Frankivsk
+        p
+          i.fas.fa-envelope.me-3.ml-4
+          |  info@example.com
+        p
+          i.fas.fa-phone.me-3.ml-4
+          |  + 01 234 567 88
+  .text-center.text-white.p-4 style=("background-color: rgba(0, 0, 0, 0.2);")
+    | © 2021 Copyright: Ihor Moskvyn

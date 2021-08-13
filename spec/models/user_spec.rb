@@ -9,6 +9,10 @@ RSpec.describe User, type: :model do
 
   it { is_expected.to be_valid }
 
+  describe 'associations' do
+    it { is_expected.to have_many(:lists) }
+  end
+
   describe 'length is invalid' do
     it { is_expected.not_to allow_value('a' * 51).for(:first_name) }
     it { is_expected.not_to allow_value('a' * 51).for(:last_name) }

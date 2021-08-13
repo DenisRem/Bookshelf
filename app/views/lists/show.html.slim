@@ -1,0 +1,22 @@
+.container
+  h1.title
+    | List info:
+  .book-info
+    .info-item
+      span.name List:
+      span.value = @list.name
+      span.name Books:
+      span.value = @list.book_ids
+    nav
+      ul.nav.navbar
+        li.nav-item = link_to 'Edit List',
+                edit_list_path,
+                class: 'btn btn-outline-warning'
+        li.nav-item = link_to 'Delete List',
+                @list,
+                method: :delete,
+                data: { confirm: 'Are you sure?' },
+                class: 'btn btn-outline-danger'
+        li.nav-item = link_to 'Back to Lists',
+                lists_path,
+                class: 'btn btn-outline-info'

@@ -1,0 +1,6 @@
+= provide(:button_text, 'Edit Book')
+= provide(:cancel_btn_text, 'Cancel')
+= provide(:path, book_path)
+h1.title
+  | Edit Book profile
+= render 'form', book: @book

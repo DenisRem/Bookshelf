@@ -1,9 +1,11 @@
 @import 'bootstrap';
 @import '@fortawesome/fontawesome-free';
-@import 'footer';
+@import 'bootstrap_custom';
+@import 'all_component';
 @import 'header';
 @import 'users';
 @import 'about';
+@import 'books';
 
 body {
   background-color: #eee9e1;

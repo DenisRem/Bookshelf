@@ -71,7 +71,7 @@ Lint/RaiseException:
   Enabled: true
   
 Layout/LineLength:
-  Max: 81
+  Max: 100
   IgnoredPatterns: ['\A#']
   Exclude:
     - 'config/initializers/devise.rb'

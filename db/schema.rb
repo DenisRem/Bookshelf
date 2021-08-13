@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_30_144922) do
+ActiveRecord::Schema.define(version: 2021_07_30_112052) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,16 @@ ActiveRecord::Schema.define(version: 2021_06_30_144922) do
     t.index ["book_id"], name: "index_book_authors_on_book_id"
   end
 
+  create_table "book_lists", force: :cascade do |t|
+    t.bigint "book_id"
+    t.bigint "list_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_id", "list_id"], name: "index_book_lists_on_book_id_and_list_id", unique: true
+    t.index ["book_id"], name: "index_book_lists_on_book_id"
+    t.index ["list_id"], name: "index_book_lists_on_list_id"
+  end
+
   create_table "books", force: :cascade do |t|
     t.string "title"
     t.string "publishing_house"
@@ -40,11 +50,19 @@ ActiveRecord::Schema.define(version: 2021_06_30_144922) do
     t.integer "number_of_pages"
     t.string "format"
     t.string "binding"
-    t.string "ISBN"
+    t.string "isbn"
     t.string "avatar"
     t.boolean "availability"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "lists", force: :cascade do |t|
+    t.string "name"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_lists_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -65,4 +83,7 @@ ActiveRecord::Schema.define(version: 2021_06_30_144922) do
 
   add_foreign_key "book_authors", "authors"
   add_foreign_key "book_authors", "books"
+  add_foreign_key "book_lists", "books"
+  add_foreign_key "book_lists", "lists"
+  add_foreign_key "lists", "users"
 end

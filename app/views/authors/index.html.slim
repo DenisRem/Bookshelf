@@ -1,0 +1,11 @@
+.container-wrapper
+  .new-button
+    = link_to 'New author', new_author_path, class: 'btn btn-primary'
+  h1
+    | All Authors
+  .user-index
+   .row
+    = render partial: @authors
+   .pagination-container
+    = paginate @authors, theme: 'twitter-bootstrap-4',
+                       pagination_class: 'pagination-md'

@@ -11,6 +11,23 @@ import "bootstrap"
 import "../stylesheets/application"
 import "./custom"
 import "@fortawesome/fontawesome-free/js/all"
+import 'select2/dist/css/select2.css'
+import 'select2'
+
+window.addEventListener('DOMContentLoaded', () => {
+  $('.select2').select2({
+    tags: true,
+    createTag: function (params) {
+      var term = $.trim(params.term);
+
+      return {
+        id: term,
+        text: term,
+        newTag: true // add additional parameters
+      }
+    }
+  });
+})
 
 Rails.start()
 Turbolinks.start()
