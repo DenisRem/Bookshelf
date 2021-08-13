@@ -21,6 +21,7 @@ gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
 gem 'pundit'
 gem 'rails', '~> 6.1.3', '>= 6.1.3.2'
+gem 'ransack'
 gem 'rubocop', require: false
 gem 'rubocop-rails', require: false
 gem 'sass-rails', '>= 6'
@@ -35,6 +36,8 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'pry-rails'
+  gem 'pry-remote'
   gem 'rspec-rails', '~> 5.0.0'
   gem 'rubocop-rspec', require: false
 end

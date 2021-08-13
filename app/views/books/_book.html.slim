@@ -1,21 +1,11 @@
-.col-md-4
-  p
-    | Title : #{book.title}
-  p
-    | Publishing house: #{book.publishing_house}
-  p
-    | Language: #{book.language}
-  p
-    | Year of publication: #{book.year_of_publication}
-  p
-    | Number of pages: #{book.number_of_pages}
-  p
-    | Format: #{book.format}
-  p
-    | Binding: #{book.binding}
-  p
-    | ISBN: #{book.ISBN}
-  p
-    | Availability: #{book.availability}
-  .show-btn
-    = link_to 'Show', book, class: 'btn btn-outline-primary'
+tr
+  td
+  td
+    span
+      = book.title
+  td
+    span
+      = book.publishing_house
+  td.eye-btn.text-center = link_to book
+    button.btn.btn-outline-dark
+      i.fas.fa-eye

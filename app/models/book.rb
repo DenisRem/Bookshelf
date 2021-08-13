@@ -3,6 +3,8 @@
 class Book < ApplicationRecord
   has_many :book_authors, dependent: :destroy
   has_many :authors, through: :book_authors
+  has_many :book_lists, dependent: :destroy
+  has_many :lists, through: :book_lists
 
   validates :title, presence: true, length: { maximum: 50 }
   validates :publishing_house, presence: true, length: { maximum: 50 }
@@ -15,6 +17,6 @@ class Book < ApplicationRecord
                                                    Time.zone.today.year }
   validates :number_of_pages, numericality: true, allow_nil: true,
                               length: { maximum: 4 }
-  validates :ISBN, numericality: true, allow_nil: true,
+  validates :isbn, numericality: true, allow_nil: true,
                    length: { minimum: 10, maximum: 13 }
 end

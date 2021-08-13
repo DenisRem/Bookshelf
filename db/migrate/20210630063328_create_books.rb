@@ -10,7 +10,7 @@ class CreateBooks < ActiveRecord::Migration[6.1]
       t.integer :number_of_pages
       t.string :format
       t.string :binding
-      t.string :ISBN
+      t.string :isbn
       t.string :avatar
       t.boolean :availability
 

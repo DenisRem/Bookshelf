@@ -1,0 +1,7 @@
+- provide(:create_btn_text, 'Edit Author')
+- provide(:cancel_btn_text, 'Cancel')
+- provide(:path, authors_path)
+h1.title
+  | Edit Author
+.container
+  = render 'form', author: @author

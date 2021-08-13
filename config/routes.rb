@@ -2,10 +2,13 @@
 
 Rails.application.routes.draw do
   devise_for :users
+
   root 'home#index', as: 'home'
 
   get 'about' => 'home#about'
 
   resources :users, except: %i[new create]
   resources :books
+  resources :authors
+  resources :lists
 end

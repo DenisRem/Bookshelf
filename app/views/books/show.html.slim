@@ -25,10 +25,13 @@
       span.value = @book.binding
     .info-item
       span.name ISBN:
-      span.value = @book.ISBN
+      span.value = @book.isbn
     .info-item
       span.name Availability:
       span.value = @book.availability
+    .info-item
+      span.name Author:
+      span.value = @book.author_ids
     nav
       ul.nav.navbar
         li.nav-item = link_to 'Edit Book',

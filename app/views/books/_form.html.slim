@@ -1,51 +1,54 @@
-= simple_form_for @book do |f|
+= simple_form_for book do |f|
 
   = f.input :title, label: 'Title',
-                   placeholder: 'Title',
-                   input_html: { class: 'form-control' },
-                   wrapper_html: { class: 'form-group.book-form' }
+                    placeholder: 'Title',
+                    input_html: { class: 'form-control' },
+                    wrapper_html: { class: 'form-group book-form' }
 
   = f.input :publishing_house, label: 'Publishing house',
                                placeholder: 'Publishing house',
                                input_html: { class: 'form-control' },
-                               wrapper_html: { class: 'form-group.book-form' }
+                               wrapper_html: { class: 'form-group book-form' }
 
   = f.input :language, label: 'Language',
                        placeholder: 'Language',
                        input_html: { class: 'form-control' },
-                       wrapper_html: { class: 'form-group.book-form' }
+                       wrapper_html: { class: 'form-group book-form' }
 
   = f.input :year_of_publication, label: 'Year of publication',
-                                  placeholder: '****',
+                                  placeholder: 'Year of publication',
                                   input_html: { class: 'form-control' },
-                                  wrapper_html: { class: 'form-group.book-form' }
+                                  wrapper_html: { class: 'form-group book-form' }
 
   = f.input :number_of_pages, label: 'Number of pages',
-                              placeholder: '****',
+                              placeholder: 'Number of pages',
                               input_html: { class: 'form-control' },
-                              wrapper_html: { class: 'form-group.book-form' }
+                              wrapper_html: { class: 'form-group book-form' }
 
   = f.input :format, label: 'Format',
-                     placeholder: '***x***',
+                     placeholder: 'Format',
                      input_html: { class: 'form-control' },
-                     wrapper_html: { class: 'form-group.book-form' }
-                
+                     wrapper_html: { class: 'form-group book-form' }
+
   = f.input :binding, label: 'Binding',
                       placeholder: 'Binding',
                       input_html: { class: 'form-control' },
-                      wrapper_html: { class: 'form-group.book-form' }
+                      wrapper_html: { class: 'form-group book-form' }
 
-  = f.input :ISBN, label: 'ISBN',
-                   placeholder: '*************',
+  = f.input :isbn, label: 'ISBN',
+                   placeholder: 'ISBN',
                    input_html: { class: 'form-control' },
-                   wrapper_html: { class: 'form-group.book-form' }
+                   wrapper_html: { class: 'form-group book-form' }
 
-  = f.input :availability, label: 'Availability',
+  = f.input :availability, as: :boolean,  label: 'Availability',
                            placeholder: 'Availability',
                            input_html: { class: 'form-control' },
-                           wrapper_html: { class: 'form-group.book-form' }
+                           wrapper_html: { class: 'form-group book-form mt-3' }
+
+  = f.label :authors
+  = f.collection_select :author_ids, Author.order(:name), :id, :name, {}, { class: 'form-control select2', multiple: true }
 
   .form-group.book-form.mt-3
-   = f.submit yield(:button_text), class: 'btn btn-primary'
-   = link_to  yield(:cancel_btn_text), yield(:path),
-                                            class: 'btn btn-outline-danger'
+    = f.submit yield(:button_text), class: 'btn btn-primary'
+    = link_to  yield(:cancel_btn_text), yield(:path),
+                                         class: 'btn btn-outline-danger'

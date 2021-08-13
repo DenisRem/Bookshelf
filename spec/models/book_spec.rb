@@ -21,7 +21,7 @@ RSpec.describe Book, type: :model do
 
     describe 'when numericality is valid' do
       it { is_expected.to validate_numericality_of(:number_of_pages).allow_nil }
-      it { is_expected.to validate_numericality_of(:ISBN).allow_nil }
+      it { is_expected.to validate_numericality_of(:isbn).allow_nil }
       it { is_expected.to validate_numericality_of(:year_of_publication) }
     end
   end

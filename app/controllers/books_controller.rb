@@ -1,22 +1,19 @@
 # frozen_string_literal: true
 
 class BooksController < ApplicationController
-  before_action :set_book, only: %i[show edit update destroy]
+  before_action :authenticate_user!, :set_book, except: %i[index new create]
 
   def index
-    @books = Book.page params[:page]
+    @ransack = Book.ransack(params[:q])
+    @books = @ransack.result.page(params[:page])
   end
 
   def new
     @book = Book.new
   end
 
-  def show; end
-
-  def edit; end
-
   def create
-    @book = Book.new(book_params)
+    @book = Book.new(permitted_attributes)
 
     if @book.save
       flash[:success] = "Your book \"#{@book.title}\" - created"
@@ -28,12 +25,14 @@ class BooksController < ApplicationController
   end
 
   def update
-    if @book.update(book_params)
-      flash[:success] = "Book profile \"#{@book.title}\"  updated"
-      redirect_to @book
-    else
-      render 'edit', warning: 'Invalid parameters for editing'
+    ActiveRecord::Base.transaction do
+      @book.update!(permitted_attributes)
+      AuthorManager.call(@book, params[:book][:author_ids])
     end
+    flash[:success] = "Book profile \"#{@book.title}\"  updated"
+    redirect_to @book
+  rescue StandardError
+    render 'edit', warning: 'Invalid parameters for editing'
   end
 
   def destroy
@@ -44,13 +43,8 @@ class BooksController < ApplicationController
 
   private
 
-  def book_params
-    params.require(:book).permit(:title, :publishing_house, :language,
-                                 :year_of_publication, :number_of_pages,
-                                 :format, :binbing, :ISBN, :avatar, :availability)
-  end
-
   def set_book
     @book = Book.find(params[:id])
+    authorize @book
   end
 end

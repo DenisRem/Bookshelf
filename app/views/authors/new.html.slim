@@ -1,0 +1,7 @@
+= provide(:button_text, 'Create new author')
+= provide(:cancel_btn_text, 'Cancel')
+= provide(:path, authors_path)
+
+h1.title
+  | New author
+= render 'form', author: @author

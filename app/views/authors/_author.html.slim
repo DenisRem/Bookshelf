@@ -1,0 +1,7 @@
+.col-md-4
+ .user-index-size
+  img = user_avatar_tag(author)
+  p
+    | Author: #{author.name}
+  div
+    = link_to 'Show', author, class: 'btn btn-outline-primary'

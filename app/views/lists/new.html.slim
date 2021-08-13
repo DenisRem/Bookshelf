@@ -1,0 +1,7 @@
+= provide(:button_text, 'Create new list')
+= provide(:cancel_btn_text, 'Cancel')
+= provide(:path, lists_path)
+
+h1.title
+  | New list
+= render 'form', list: @list

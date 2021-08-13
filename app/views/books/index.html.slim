@@ -1,13 +1,26 @@
-.container-wrapper
-  .new-button
-    = link_to new_book_path, class: 'btn btn-primary'
-      | New book
-  h1
-    | All Books
-  .book-index
-    .row.mt-4
-      - @books.each do |book|
-        = render book
-    .pagination-container
-      = paginate @books, theme: 'twitter-bootstrap-4',
-                         pagination_class: 'pagination-md'
+.box
+  .all-component
+    nav.navbar.navbar-dark
+      h2.text-white
+        | Books
+      .form-row
+        = render 'search_form'
+      table.table
+        thead.thead
+          tr
+            th
+            th
+              span
+                | Title
+            th
+              span
+                | Publishing House
+
+            th.plus-btn.text-center = link_to new_book_path
+              button.btn.btn-outline-light
+                i.fas.fa-plus
+        tbody
+          = render partial: @books
+      .pagination-container
+        = paginate @books, theme: 'twitter-bootstrap-4',
+                pagination_class: 'pagination-md'

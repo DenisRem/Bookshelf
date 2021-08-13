@@ -1,0 +1,21 @@
+.box
+  .all-component
+    nav.navbar.navbar-dark
+      h2.mx-auto
+        = t('Lists')
+      table.table
+        thead.thead
+          tr
+            th
+            th
+              span
+                = t('list.name')
+
+            th.plus-btn.text-center = link_to new_list_path
+              button.btn.btn-outline-light
+                i.fas.fa-plus
+        tbody
+          = render partial: @lists
+      .pagination-container
+        = paginate @lists, theme: 'twitter-bootstrap-4',
+                pagination_class: 'pagination-md'

@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, :find_user, except: :index
 
   def update
-    if @user.update(user_params)
+    if @user.update(permitted_attributes)
       flash[:success] = "User profile \"#{@user.decorate.full_name}\"  updated"
       redirect_to @user
     else
@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.page params[:page]
+    @users = User.page(params[:page])
   end
 
   def destroy
@@ -24,10 +24,6 @@ class UsersController < ApplicationController
   end
 
   private
-
-  def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :avatar)
-  end
 
   def find_user
     @user = User.find(params[:id])

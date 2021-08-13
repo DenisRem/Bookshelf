@@ -10,12 +10,36 @@ header.header.w-100
             button.btn.btn-transparent.auth-btn
               | About us
               span.sr-only (current)
+        li.nav-item
+          = link_to users_path, class: 'a nav-link ml-3'
+            button.btn.btn-transparent.auth-btn
+              | Users
+              span.sr-only (current)
+        li.nav-item
+          = link_to books_path, class: 'a nav-link ml-3'
+            button.btn.btn-transparent.auth-btn
+              | Books
+              span.sr-only (current)
+        li.nav-item
+          = link_to authors_path, class: 'a nav-link ml-3'
+            button.btn.btn-transparent.auth-btn
+              | Authors
+              span.sr-only (current)
+        li.nav-item
+          = link_to lists_path, class: 'a nav-link ml-3'
+            button.btn.btn-transparent.auth-btn
+              | Lists
+              span.sr-only (current)
     ul.nav.navbar-nav.navbar-right
-      li
-        = link_to new_user_session_path
-          span
-            button.btn.btn-transparent.auth-btn Login
-      li
-        = link_to new_user_registration_path
-          span
-            button.btn.btn-transparent.auth-btn.ml-2 Sign Up
+      - if current_user
+        li 
+          =  link_to 'Sign Out', destroy_user_session_path, method: :delete
+      - else 
+        li
+          = link_to new_user_session_path
+            span
+              button.btn.btn-transparent.auth-btn Login
+        li
+          = link_to new_user_registration_path
+            span
+              button.btn.btn-transparent.auth-btn.ml-2 Sign Up

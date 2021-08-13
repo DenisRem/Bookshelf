@@ -1,0 +1,28 @@
+.box
+  .all-component
+    nav.navbar.navbar-dark
+      h2.mx-auto
+        = t('Lists')
+      table.table
+        thead.thead
+          tr
+            td
+            th
+              = select_tag :list_id,
+                      options_from_collection_for_select(List.order(:name), :id, :name),
+                      class: "form-control custom-select"
+            th.plus-btn.text-center = link_to
+              button.btn.btn-outline-light
+                i.fas.fa-plus
+            th
+              span
+                = t('list.name')
+
+            th.plus-btn.text-center = link_to new_list_path
+              button.btn.btn-outline-light
+                i.fas.fa-plus
+        tbody
+          = render partial: @books
+      .pagination-container
+        = paginate @books, theme: 'twitter-bootstrap-4',
+                pagination_class: 'pagination-md'
